@@ -54,7 +54,7 @@ const schema = makeExecutableSchema({
 })
 
 mongoose
-.connect(process.env.MONGO_URI)
+.connect(process.env.MONGO_URI,{ useFindAndModify: false,useUnifiedTopology: true,useNewUrlParser: true,})
 .then(()=>console.log('db connected'))
 .catch(err => console.error("error is " + err))
 

@@ -30,6 +30,20 @@ export const GET_ALL_RECIPES = gql`
 
 // Recipe Mutations
 
+export const UPDATE_USER_RECIPE = gql`
+    mutation($_id:ID!,$name:String!,$description:String!,$instructions:String!,$category:String!){
+        updateUserRecipe(_id:$_id,name:$name,description:$description,instructions:$instructions,category:$category){
+            _id
+            name
+            likes
+            description
+            instructions
+            category
+            username
+        }
+    }
+`
+
 export const LIKE_RECIPE = gql`
     mutation($_id:ID!,$username:String!){
         likeRecipe(_id:$_id,username:$username){
@@ -77,6 +91,8 @@ export const GET_USER_RECIPES = gql`
         getUserRecipes(username:$username){
             _id
             name
+            instructions
+            description
             likes
         }
     }

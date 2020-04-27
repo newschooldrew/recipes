@@ -23,7 +23,7 @@ class AddRecipe extends React.Component{
     }
 
     validateForm = () =>{
-        const {name,category, description, instructions} = this.state;
+        const {name,category, description} = this.state;
         const isValidated = !name || !category || !description;
         return isValidated;
     }

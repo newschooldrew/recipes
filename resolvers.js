@@ -55,6 +55,16 @@ exports.resolvers = {
         }
     },
     Mutation:{
+        updateUserRecipe:async(root,{_id,name,description, instructions,
+            category, username},{Recipe}) =>{
+                const updatedRecipe = await Recipe.findOneAndUpdate(
+                    {_id},
+                    {$set:{name, description,category,instructions}},
+                    {new:true}
+                )
+                return updatedRecipe
+            }
+        ,
         deleteUserRecipe:async (root,{_id},{Recipe}) =>{
             const recipe = await Recipe.findOneAndRemove({_id})
             return recipe

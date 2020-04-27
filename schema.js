@@ -37,6 +37,13 @@ exports.typeDefs = `
 
     type Mutation{
 
+        updateUserRecipe(_id:ID!,
+            name:String!,
+            description:String!, 
+            category:String!,
+            instructions:String!,
+            username:String):Recipe
+
         likeRecipe(username:String!,_id:ID!):Recipe
         unlikeRecipe(username:String!,_id:ID!):Recipe
 
