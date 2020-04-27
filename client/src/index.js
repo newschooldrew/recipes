@@ -37,7 +37,7 @@ const Root = ({session, refetch, networkStatus}) =>(
 const RootwithSession = withSession(Root);
 
 const httpLink = createHttpLink({
-  uri:'http://localhost:4444/graphql',
+  uri:'https://drews-react-apollo-recipes.herokuapp.com/graphql',
   credentials:'include'
 })
 

@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 // connects to database and schema
 require('dotenv').config({path:'variables.env'})
 
+const path = require('path')
+
 //schemas
 const Recipe = require('./models/Recipe')
 const User = require('./models/User')
@@ -43,9 +45,8 @@ app.use(async (req,res,next) => {
 })
 
 // create graphiql app
-app.use('/graphiql', graphiqlExpress({endpointURL:'/graphiql'}
-//test
-))
+// app.use('/graphiql', graphiqlExpress({endpointURL:'/graphiql'}
+// ))
 
 //creates graphql schema
 const schema = makeExecutableSchema({
@@ -69,6 +70,16 @@ app.use('/graphql',  bodyParser.json(),graphqlExpress(({currentUser})=>
         currentUser
     }
 }))))
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'client','build',
+        'index.html'
+        ))
+    })
+}
 
 const PORT = process.env.PORT || 4444;
 
