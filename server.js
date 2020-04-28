@@ -22,7 +22,7 @@ const {resolvers} = require('./resolvers')
 
 const corsOptions = {
     // domain we're making requests from
-    origin:'http://drewperez.party/',
+    origin:'http://drewperez.party',
     credentials:true
 }
 
