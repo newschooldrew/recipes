@@ -11,7 +11,7 @@ const App = () =>(
       {
       ({data,loading, err}) =>{
         // window.location.reload()
-        if (!data) return <div>refresh it</div>
+        if (!data) return <div>Please wait...</div>
         if (loading) return <div>Please reload...</div>
         if (err) return <div>Please reload...</div>
         return (

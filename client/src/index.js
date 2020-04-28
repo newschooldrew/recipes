@@ -37,7 +37,7 @@ const Root = ({session, refetch, networkStatus}) =>(
 const RootwithSession = withSession(Root);
 
 const httpLink = createHttpLink({
-  uri:'https://drewperez.party/graphql',
+  uri:'http://drewperez.party/graphql',
   credentials:'include'
 })
 
