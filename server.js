@@ -22,7 +22,8 @@ const {resolvers} = require('./resolvers')
 
 const corsOptions = {
     // domain we're making requests from
-    origin:'http://drewperez.party',
+    // origin:'https://drews-react-apollo-recipes.herokuapp.com/',
+    origin:'http://localhost:3000',
     credentials:true
 }
 
